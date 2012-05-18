@@ -1,6 +1,12 @@
-c2csv
+c2csv.py
 =====
 /*
+AUTHOR:
+Yash Chandra
+
+LICENSE:
+LGPL
+
 DESCRIPTION:
 Python Utility to convert any data format into csv. The formats supported are:
 
