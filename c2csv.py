@@ -36,3 +36,4 @@ myC2csv.parse_qfx(qfx_file_name)
 #myC2csv.qfx_2_csv()
 for x in qfx_lines:
 	print x		
+print "all done.."

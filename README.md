@@ -5,7 +5,7 @@ AUTHOR:
 Yash Chandra
 
 LICENSE:
-LGPL
+LGPLv1.0?
 
 DESCRIPTION:
 Python Utility to convert any data format into csv. The formats supported are:
