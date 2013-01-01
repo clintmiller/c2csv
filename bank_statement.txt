@@ -1,0 +1,14 @@
+Currency
+Bank Account route code
+Bank Account number
+Bank Account type
+Transaction list:
+	dt start
+	dt end
+	transaction:
+		dt posted
+		dt user
+		amont
+		fitid
+		name
+		memo
