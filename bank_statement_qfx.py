@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import csv
+from datetime import *
 
 
 class BankStatementQFX():
@@ -19,47 +20,37 @@ class BankStatementQFX():
 
 	def bankstatement_to_csv(self,csvfilename,delimiter):
 		csvfile_handler = csv.writer(open(csvfilename, 'wb'), delimiter=delimiter,quotechar='"', quoting=csv.QUOTE_MINIMAL)
-		header = ['trans_asof_end','trans_type','date_posted','date_user_activity','amount','account_num','name','memo']
+		header = ['trans_asof_end','trans_type','date_posted','amount','name']
 		csvfile_handler.writerow(header)		
 		for trans in self.trans_list.trans_list_details:
 			lst = []
 			a = trans.trans_type
-			a1 = trans.dt_posted
-			a2 = trans.dt_user
+			a1 = trans.dt_posted.strftime("%m/%d/%Y")
 			a3 = trans.amount
-			a4 = trans.fitid
 			a5 = trans.name
-			a6 = trans.memo
 			#lst.append(self.trans_list.trans_list_start)
-			lst.append(self.trans_list.trans_list_end)
+			#lst.append(self.trans_list.trans_list_end)
 			lst.append(a)
 			lst.append(a1)
-			lst.append(a2)
 			lst.append(a3)
-			lst.append(a4)
 			lst.append(a5)
-			lst.append(a6)
 			csvfile_handler.writerow(lst)
 		
 
 class Transaction():
-	def __init__(self,trans_type,dt_posted,dt_user,amount,fitid,name,memo):
+	def __init__(self,trans_type,dt_posted,amount,fitid,name):
 		self.trans_type = trans_type
-		self.dt_posted = dt_posted
-		self.dt_user = dt_user
+		self.dt_posted = datetime.strptime(dt_posted, "%Y%m%d%H%M%S.%f")
 		self.amount = amount
 		self.fitid = fitid
 		self.name = name
-		self.memo = memo
 	
 	def print_transaction(self):
 		print self.trans_type
 		print self.dt_posted
-		print self.dt_user
 		print self.amount
 		print self.fitid
 		print self.name
-		print self.memo
 
 
 class TransactionList():

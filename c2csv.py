@@ -86,7 +86,7 @@ class Convert2CSV():
 				dtStart = tagline[9:]
 			if dtEndTag >=0:
 				dtEnd = tagline[7:]
-		"""	
+			
 		print ccy
 		print routeCode
 		print acctNumber
@@ -94,13 +94,13 @@ class Convert2CSV():
 		print dtStart
 		print dtEnd
 		print "length of transTypeList = ",len(transTypeList)
-		"""
+		
 		temp_list = []
 	 	trans_list = TransactionList(dtStart,dtEnd,temp_list)	
 
 		for x in range (len(transTypeList)):
-			currTransaction = Transaction(transTypeList[x],transPostedList[x],transUserList[x],\
-			transAmountList[x],transFitIdList[x],transNameList[x],transMemoList[x])
+			currTransaction = Transaction(transTypeList[x],transPostedList[x],\
+			transAmountList[x],transFitIdList[x],transNameList[x])
 			trans_list.add_transaction(currTransaction)
 		bst = BankStatementQFX(ccy,routeCode,acctNumber,acctType,trans_list)
 		return bst
